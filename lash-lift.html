@@ -204,7 +204,9 @@
 
   /* Services */
   .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
-  .service { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem 1.4rem 1.3rem; display: grid; gap: 0.55rem; align-content: start; min-width: 0; transition: border-color 160ms ease, transform 160ms ease; }
+  .service { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem 1.4rem 1.3rem; display: flex; flex-direction: column; gap: 0.55rem; min-width: 0; transition: border-color 160ms ease, transform 160ms ease; }
+  .service .where { margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--line); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blush-deep); font-weight: 500; }
+  .service .where::before { content: "◆ "; color: var(--gold); }
   .service:hover { border-color: var(--gold); transform: translateY(-2px); }
   .service h3 { display: flex; justify-content: space-between; gap: 0.6rem; align-items: baseline; }
   .service .price { font-family: var(--font-body); font-size: 0.95rem; color: var(--gold-deep); white-space: nowrap; font-variant-numeric: tabular-nums; }

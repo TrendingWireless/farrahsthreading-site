@@ -204,7 +204,9 @@
 
   /* Services */
   .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
-  .service { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem 1.4rem 1.3rem; display: grid; gap: 0.55rem; align-content: start; min-width: 0; transition: border-color 160ms ease, transform 160ms ease; }
+  .service { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem 1.4rem 1.3rem; display: flex; flex-direction: column; gap: 0.55rem; min-width: 0; transition: border-color 160ms ease, transform 160ms ease; }
+  .service .where { margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--line); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blush-deep); font-weight: 500; }
+  .service .where::before { content: "◆ "; color: var(--gold); }
   .service:hover { border-color: var(--gold); transform: translateY(-2px); }
   .service h3 { display: flex; justify-content: space-between; gap: 0.6rem; align-items: baseline; }
   .service .price { font-family: var(--font-body); font-size: 0.95rem; color: var(--gold-deep); white-space: nowrap; font-variant-numeric: tabular-nums; }
@@ -389,6 +391,7 @@
           <p class="lede">Our standalone studio at 1360A Harrisburg Pike in Lancaster, with the full menu: eyebrow and facial threading, eyebrow and lash tinting, lash lift, brow lamination, eyelash extensions, waxing, custom facials, HydraFacial and henna.</p>
           <div class="hero-actions">
             <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&amp;query=Farrah%27s+Threading+%26+Beauty+Studio%2C+1360A+Harrisburg+Pike%2C+Lancaster%2C+PA+17601" target="_blank" rel="noopener">Get directions</a>
+            <a class="btn btn-outline" href="#services">See our services</a>
             <a class="btn btn-outline" href="https://form.jotform.com/262838547707066" target="_blank" rel="noopener">Request an appointment</a>
           </div>
         </div>
@@ -417,7 +420,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="services">
     <div class="wrap">
       <div class="section-head"><p class="eyebrow">Services at this studio</p><h2>What we offer here.</h2></div>
       <div class="more"><a href="threading.html">Eyebrow & facial threading<span>Threading · Walk in</span></a><a href="eyebrow-tinting.html">Eyebrow tinting<span>Tinting</span></a><a href="lash-tinting.html">Lash tinting<span>Tinting</span></a><a href="brow-lamination.html">Brow lamination<span>Brows</span></a><a href="lash-lift.html">Lash lift<span>Lashes</span></a><a href="lash-extensions.html">Eyelash extensions<span>Lashes</span></a><a href="waxing.html">Face & body waxing<span>Waxing</span></a><a href="facials.html">Custom facial & microdermabrasion<span>Facials</span></a><a href="henna.html">Henna tattoo<span>Henna</span></a><a href="hydrafacial.html">HydraFacial<span>Facials · HydraFacial provider</span></a></div>

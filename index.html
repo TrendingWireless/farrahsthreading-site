@@ -206,7 +206,9 @@
 
   /* Services */
   .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
-  .service { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem 1.4rem 1.3rem; display: grid; gap: 0.55rem; align-content: start; min-width: 0; transition: border-color 160ms ease, transform 160ms ease; }
+  .service { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem 1.4rem 1.3rem; display: flex; flex-direction: column; gap: 0.55rem; min-width: 0; transition: border-color 160ms ease, transform 160ms ease; }
+  .service .where { margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--line); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blush-deep); font-weight: 500; }
+  .service .where::before { content: "◆ "; color: var(--gold); }
   .service:hover { border-color: var(--gold); transform: translateY(-2px); }
   .service h3 { display: flex; justify-content: space-between; gap: 0.6rem; align-items: baseline; }
   .service .price { font-family: var(--font-body); font-size: 0.95rem; color: var(--gold-deep); white-space: nowrap; font-variant-numeric: tabular-nums; }
@@ -415,34 +417,35 @@
           <a class="service-link" href="lash-lift.html">Learn more →</a>
         </article>
         <article class="service">
-          <span class="tag">Harrisburg Pike studio</span>
           <h3>Eyelash extensions</h3>
           <p>Full individual sets for weeks of length and volume, clusters for a weekend, strips for a night.</p>
           <a class="service-link" href="lash-extensions.html">Learn more →</a>
+          <span class="where">Harrisburg Pike studio</span>
         </article>
         <article class="service">
-          <span class="tag">Harrisburg Pike studio</span>
           <h3>Face &amp; body waxing</h3>
           <p>Arms, legs, underarms, back, chest, bikini and Brazilian, plus nose, ears and face. Fresh supplies for every client.</p>
           <a class="service-link" href="waxing.html">Learn more →</a>
+          <span class="where">Harrisburg Pike studio</span>
         </article>
         <article class="service">
-          <span class="tag">Harrisburg Pike studio</span>
           <h3>Custom facial</h3>
           <p>Built for your skin after a consultation about your skin health and goals. Microdermabrasion available.</p>
           <a class="service-link" href="facials.html">Learn more →</a>
+          <span class="where">Harrisburg Pike studio</span>
         </article>
         <article class="service hydra">
-          <span class="tag">HydraFacial provider · Harrisburg Pike studio</span>
+          <span class="tag">HydraFacial provider</span>
           <h3>HydraFacial®</h3>
           <p>Cleanse, exfoliate, extract and hydrate in one no-downtime treatment, in Signature, Deluxe and Platinum tiers.</p>
           <a class="service-link" href="hydrafacial.html">About HydraFacial at Farrah's →</a>
+          <span class="where">Harrisburg Pike studio</span>
         </article>
         <article class="service">
-          <span class="tag">Harrisburg Pike studio</span>
           <h3>Henna tattoo</h3>
           <p>Freehand natural henna for weddings, Eid, showers and parties, from a single flower to full bridal hands.</p>
           <a class="service-link" href="henna.html">Learn more →</a>
+          <span class="where">Harrisburg Pike studio</span>
         </article>
       </div>
       <p class="note" id="priceNote">Eyebrow threading is walk-in only, first come, first served. For everything else, <a id="servicesBook" href="#contact">request an appointment</a> and we'll call or text you to confirm. Ask in the studio for current pricing.</p>
