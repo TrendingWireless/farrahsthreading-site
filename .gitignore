@@ -1,4 +1,7 @@
 src/dist/
+src/*.html
+!src/index.html
+!src/hydrafacial-body.html
 __pycache__/
 *.pyc
 .DS_Store
