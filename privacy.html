@@ -374,6 +374,17 @@
   .legal .glance dt { font-weight: 600; color: var(--blush-deep); }
   .legal .glance dd { margin: 0; }
   @media (max-width: 600px) { .legal .glance dl { grid-template-columns: 1fr; gap: 0.15rem; } .legal .glance dd { margin-bottom: 0.6rem; } }
+  .legal .notice { border-left-color: var(--blush-deep); }
+  .legal .notice h2 { font-size: 1.25rem; }
+  .legal .notice p { margin: 0.5rem 0 0; font-size: 0.97rem; }
+  .legal .scroll-hint { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin: 2rem 0 0.5rem; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+  .legal .scroll-hint a { color: inherit; letter-spacing: 0; text-transform: none; font-size: 0.9rem; }
+  .legal .policy-scroll { max-height: 68vh; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 0.2rem 1.6rem 1.4rem; box-shadow: inset 0 -28px 28px -28px rgba(0,0,0,0.25); scrollbar-gutter: stable; }
+  .legal .policy-scroll:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .legal .policy-scroll h2:first-child { margin-top: 1.4rem; }
+  .legal .policy-scroll.expanded { max-height: none; box-shadow: none; }
+  @media (max-width: 600px) { .legal .policy-scroll { max-height: 62vh; padding: 0.2rem 1.1rem 1.2rem; } }
+  @media print { .legal .policy-scroll { max-height: none; overflow: visible; border: 0; box-shadow: none; padding: 0; } .legal .scroll-hint { display: none; } }
 </style>
 </head>
 <body>
@@ -404,7 +415,7 @@
     <div class="wrap">
       <p class="crumbs"><a href="index.html">Home</a> › Privacy &amp; Text Messaging Policy</p>
       <h1 style="max-width:14em">Privacy &amp; Text Messaging Policy.</h1>
-      <p class="lede" style="max-width:40em">How we use what you share with us, and the plain-English terms for texts and calls from Farrah's.</p>
+      <p class="lede" style="max-width:40em">How we use what you share with us, the plain-English terms for texts and calls from Farrah's, and our no-solicitation notice for marketers.</p>
     </div>
   </section>
 
@@ -417,7 +428,7 @@
           <h2>Text messaging at a glance</h2>
           <dl>
             <dt>Who texts you</dt><dd>Farrah's Threading &amp; Beauty Studio, Lancaster, PA — about appointment requests, confirmations and reminders, and (only if you opt in) occasional specials.</dd>
-            <dt>Frequency</dt><dd>Varies with your appointments. Promotional texts: typically no more than 4 per month.</dd>
+            <dt>Frequency</dt><dd>Varies with your appointments. Promotional texts: typically no more than 4 per month, 9 a.m.&ndash;7 p.m., never on Sundays.</dd>
             <dt>Cost</dt><dd>Message and data rates may apply, depending on your mobile plan.</dd>
             <dt>Stop</dt><dd>Reply <strong>STOP</strong> to any text (CANCEL, END, QUIT or UNSUBSCRIBE also work). You'll get one confirmation and no further texts.</dd>
             <dt>Help</dt><dd>Reply <strong>HELP</strong>, call or text <a href="tel:+17174337774">717-433-7774</a>, or email <a href="mailto:management@farrahsthreading.com">management@farrahsthreading.com</a>.</dd>
@@ -425,6 +436,14 @@
           </dl>
         </div>
 
+        <div class="glance notice" id="no-solicitation">
+          <h2>Notice to marketers, vendors and robocallers: no solicitation</h2>
+          <p>Farrah's Threading &amp; Beauty Studio L.L.C. does <strong>not</strong> consent to sales or marketing calls, robocalls, prerecorded, artificial- or AI-voice calls, autodialed calls, marketing text messages, ringless voicemails or faxes at any of its telephone numbers, including <a href="tel:+17174337774">717-433-7774</a>, or to marketing email at any address on this site. Our contact details are published for clients and prospective clients only.</p>
+          <p>Treat this page as a company-specific do-not-call request under 47 C.F.R. § 64.1200(d) and Pennsylvania's Telemarketer Registration Act (73 P.S. § 2241 et seq.): add every Farrah's number to your internal do-not-call list. Unsolicited solicitations are logged and reported to the Pennsylvania Attorney General and the FCC/FTC, and we reserve all remedies, including statutory damages of $500 to $1,500 per call or text where the law provides them. Section 13 below has the details.</p>
+        </div>
+
+        <div class="scroll-hint"><span>Full policy · scroll to read</span><a href="#" id="expandPolicy">Show the whole policy on one page</a></div>
+        <div class="policy-scroll" id="policyScroll" tabindex="0" role="region" aria-label="Full privacy and text messaging policy">
         <h2>1. Who we are</h2>
         <p>Farrah's Threading &amp; Beauty Studio L.L.C. ("Farrah's," "we," "us") runs two studios in Lancaster, Pennsylvania: 1360A Harrisburg Pike and 621 Park City Center. This policy covers our website, farrahsthreading.com, and the forms we use for appointment requests, gift cards, feedback and job applications. Questions? Email <a href="mailto:management@farrahsthreading.com">management@farrahsthreading.com</a> or call <a href="tel:+17174337774">717-433-7774</a>.</p>
 
@@ -448,7 +467,7 @@
         <h3>Appointment and service texts</h3>
         <p>When you give us your mobile number and ask us to reach you by text (or "Either"), you agree that Farrah's may text you at that number about your request and your appointments: time offers, confirmations, reminders, changes and replies to your messages. These texts are part of the service you asked for, not marketing.</p>
         <h3>Promotional texts and calls</h3>
-        <p>We send specials, promotions and news only to people who have given us written permission — for example by checking the "Offers &amp; promotions" box on our appointment form, or by texting us a keyword we advertise. By opting in you agree to receive marketing texts and calls from Farrah's at the number you provided, which may be sent using automated technology or a prerecorded voice. Consent is not a condition of booking or purchase. Promotional texts are typically no more than four per month, and we send promotional texts and calls only between 8 a.m. and 9 p.m. Eastern.</p>
+        <p>We send specials, promotions and news only to people who have given us written permission — for example by checking the "Offers &amp; promotions" box on our appointment form, or by texting us a keyword we advertise. By opting in you agree to receive marketing texts and calls from Farrah's at the number you provided, which may be sent using automated technology or a prerecorded voice. Consent is not a condition of booking or purchase. Promotional texts are typically no more than four per month, and we send promotional texts and calls only between 9 a.m. and 7 p.m. Eastern, Monday through Saturday &mdash; never on Sundays or legal holidays.</p>
         <h3>Cost and delivery</h3>
         <p>Message and data rates may apply according to your mobile plan. Texts are supported on major U.S. carriers. Carriers are not liable for delayed or undelivered messages.</p>
         <h3>How to stop</h3>
@@ -486,8 +505,21 @@
         <h2>11. Changes to this policy</h2>
         <p>If we change this policy we'll post the new version here with a new effective date. Material changes to how we text you will also be noted in our texts.</p>
 
-        <h2>12. Contact us</h2>
+        <h2>13. No solicitation: notice to marketers, vendors and robocallers</h2>
+        <p>Our telephone numbers, email addresses and contact forms exist so that clients and prospective clients can reach us. They are not an invitation to sell to us. Farrah's Threading &amp; Beauty Studio L.L.C., its owner and its staff do <strong>not</strong> consent, and expressly object, to:</p>
+        <ul>
+          <li>sales, marketing, lead-generation, survey or fundraising calls to any Farrah's number, including <a href="tel:+17174337774">717-433-7774</a> and any mobile number used for the business;</li>
+          <li>robocalls of any kind: prerecorded, artificial or AI-generated voice, autodialed or predictive-dialed calls, and ringless voicemails;</li>
+          <li>marketing or promotional text messages, faxes, and unsolicited marketing email to any address on this site or in our listings;</li>
+          <li>calls or messages that spoof caller ID or misrepresent who is calling.</li>
+        </ul>
+        <p>This page is a standing, company-specific do-not-call request. Under 47 C.F.R. § 64.1200(d) and Pennsylvania's Telemarketer Registration Act (73 P.S. § 2241 et seq., as amended effective October 19, 2026), telemarketers must honor it: record every Farrah's number on your internal do-not-call list and do not call, text or robocall again. Pennsylvania law also prohibits robocalls to business and wireless lines without the recipient's prior express written consent, which we have not given to anyone, and bars telemarketing before 9 a.m., after 7 p.m., and on Sundays.</p>
+        <p>We keep a log of unsolicited solicitations (date, time, number, company and what was said) and report them to the Pennsylvania Office of Attorney General, the FCC and the FTC. We reserve all remedies available to us, including statutory damages under the Telephone Consumer Protection Act (47 U.S.C. § 227) of $500 per call or text, up to $1,500 for knowing or willful violations, where the law provides them.</p>
+        <p>Vendors we already work with may contact us about our account. Anyone else with a legitimate business proposal may email <a href="mailto:management@farrahsthreading.com">management@farrahsthreading.com</a> once; we'll reach out if we're interested.</p>
+
+        <h2>14. Contact us</h2>
         <p>Farrah's Threading &amp; Beauty Studio L.L.C.<br>1360A Harrisburg Pike, Lancaster, PA 17601 · 621 Park City Center, Lancaster, PA 17601<br><a href="tel:+17174337774">717-433-7774</a> · <a href="mailto:management@farrahsthreading.com">management@farrahsthreading.com</a></p>
+        </div>
       </article>
     </div>
   </section>
@@ -507,6 +539,10 @@
   const t = document.getElementById("navToggle"), l = document.getElementById("navLinks");
   t.addEventListener("click", () => { const open = l.classList.toggle("open"); t.setAttribute("aria-expanded", String(open)); t.textContent = open ? "Close" : "Menu"; });
   document.getElementById("year").textContent = String(new Date().getFullYear());
+
+  const ps = document.getElementById("policyScroll"), ex = document.getElementById("expandPolicy");
+  ex.addEventListener("click", (e) => { e.preventDefault(); const on = ps.classList.toggle("expanded"); ex.textContent = on ? "Back to the scrolling window" : "Show the whole policy on one page"; });
+  if (location.hash === "#no-solicitation") document.getElementById("no-solicitation").scrollIntoView();
 </script>
 </body>
 </html>
