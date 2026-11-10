@@ -212,7 +212,7 @@ FOOTER = f"""<footer>
     <div class="footer-text">
       <div><strong>Farrah's Threading &amp; Beauty Studio L.L.C.</strong> · Lancaster, Pennsylvania</div>
       <div><a href="harrisburg-pike.html" style="color:inherit">1360A Harrisburg Pike</a> · <a href="park-city-center.html" style="color:inherit">621 Park City Center</a> · <a href="tel:+17174337774" style="color:inherit;text-decoration:none">{PHONE}</a> · <a href="https://g.page/r/CbGpJmRZDTYFEBM/review" target="_blank" rel="noopener" style="color:var(--gold)">Leave a Google review</a></div>
-      <div>HydraFacial® and Vortex-Fusion® are registered trademarks of their owner; Farrah's is an independent HydraFacial provider. · © <span id="year">2026</span></div>
+      <div>HydraFacial® and Vortex-Fusion® are registered trademarks of their owner; Farrah's is an independent HydraFacial provider. · <a href="privacy.html" style="color:inherit">Privacy &amp; texting policy</a> · © <span id="year">2026</span></div>
     </div>
   </div>
 </footer>
@@ -495,3 +495,139 @@ def location_page(loc):
 for loc in SITE["locations"]:
     (root / f"{loc['slug']}.html").write_text(location_page(loc))
     print("built", loc["slug"] + ".html")
+
+
+# ---------------------------------------------------------------------------
+# Privacy & Text Messaging Policy (linked from the appointment form's consent
+# language and the site footer; also what carriers ask for when registering a
+# business texting number)
+# ---------------------------------------------------------------------------
+LEGAL_CSS = """<style>
+  .legal { max-width: 780px; margin: 0 auto; padding: 2.6rem 0 3.6rem; font-size: 1.02rem; line-height: 1.68; }
+  .legal h2 { font-size: 1.5rem; margin: 2.3rem 0 0.6rem; }
+  .legal h3 { font-size: 1.1rem; margin: 1.4rem 0 0.35rem; }
+  .legal p, .legal li, .legal dd { color: var(--ink); }
+  .legal ul { padding-left: 1.2rem; }
+  .legal li { margin: 0.3rem 0; }
+  .legal a { color: var(--plum); }
+  .legal .meta { color: var(--ink-soft); font-size: 0.92rem; margin: 0 0 1.2rem; }
+  .legal .glance { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 14px; padding: 1.25rem 1.5rem; margin: 1.6rem 0 0.4rem; box-shadow: var(--shadow); }
+  .legal .glance h2 { margin: 0 0 0.8rem; font-size: 1.25rem; }
+  .legal .glance dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 0.45rem 1.1rem; }
+  .legal .glance dt { font-weight: 600; color: var(--plum); }
+  .legal .glance dd { margin: 0; }
+  @media (max-width: 600px) { .legal .glance dl { grid-template-columns: 1fr; gap: 0.15rem; } .legal .glance dd { margin-bottom: 0.6rem; } }
+</style>"""
+
+LEGAL_EFFECTIVE = "November 10, 2026"
+EMAIL = "management@farrahsthreading.com"
+
+def legal_page():
+    title = "Privacy & Text Messaging Policy | Farrah's Threading & Beauty Studio"
+    desc = "How Farrah's Threading & Beauty Studio in Lancaster, PA uses the information you share with us, and the terms of our appointment and promotional text messages."
+    url = f"{seo.DOMAIN}/privacy.html"
+    graph = [seo.webpage_node(url, title, desc, about={"@id": seo.ORG_ID}),
+             seo.breadcrumbs([("Home", seo.DOMAIN + "/"), ("Privacy & Text Messaging Policy", None)])]
+    body = f"""{header('')}
+<main id="top">
+  <section class="hero on-plum hydra-hero" style="padding-bottom:2.2rem">
+    <div class="wrap">
+      <p class="crumbs"><a href="index.html">Home</a> › Privacy &amp; Text Messaging Policy</p>
+      <h1 style="max-width:14em">Privacy &amp; Text Messaging Policy.</h1>
+      <p class="lede" style="max-width:40em">How we use what you share with us, and the plain-English terms for texts and calls from Farrah's.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <article class="legal">
+        <p class="meta">Farrah's Threading &amp; Beauty Studio L.L.C. · Effective {LEGAL_EFFECTIVE}</p>
+
+        <div class="glance">
+          <h2>Text messaging at a glance</h2>
+          <dl>
+            <dt>Who texts you</dt><dd>Farrah's Threading &amp; Beauty Studio, Lancaster, PA — about appointment requests, confirmations and reminders, and (only if you opt in) occasional specials.</dd>
+            <dt>Frequency</dt><dd>Varies with your appointments. Promotional texts: typically no more than 4 per month.</dd>
+            <dt>Cost</dt><dd>Message and data rates may apply, depending on your mobile plan.</dd>
+            <dt>Stop</dt><dd>Reply <strong>STOP</strong> to any text (CANCEL, END, QUIT or UNSUBSCRIBE also work). You'll get one confirmation and no further texts.</dd>
+            <dt>Help</dt><dd>Reply <strong>HELP</strong>, call or text <a href="tel:+17174337774">{PHONE}</a>, or email <a href="mailto:{EMAIL}">{EMAIL}</a>.</dd>
+            <dt>Not required</dt><dd>Consent to texts is never a condition of booking or buying anything — choose "Phone call" on our form instead.</dd>
+          </dl>
+        </div>
+
+        <h2>1. Who we are</h2>
+        <p>Farrah's Threading &amp; Beauty Studio L.L.C. ("Farrah's," "we," "us") runs two studios in Lancaster, Pennsylvania: 1360A Harrisburg Pike and 621 Park City Center. This policy covers our website, farrahsthreading.com, and the forms we use for appointment requests, gift cards, feedback and job applications. Questions? Email <a href="mailto:{EMAIL}">{EMAIL}</a> or call <a href="tel:+17174337774">{PHONE}</a>.</p>
+
+        <h2>2. What we collect</h2>
+        <ul>
+          <li><strong>What you give us</strong> through our forms or in the studio: your name, mobile number, email, the services and times you're asking about, notes you add, and your contact and texting preferences. Job applicants also share work history and availability.</li>
+          <li><strong>Consent records</strong>: when you choose text, or check the offers box, we keep the date, time and content of that choice with your request.</li>
+          <li><strong>Website basics</strong>: our site doesn't use advertising cookies or analytics trackers. Like any website, our hosting provider records standard server logs, and the Google Fonts we load may receive your IP address.</li>
+        </ul>
+
+        <h2>3. How we use it</h2>
+        <ul>
+          <li>To answer your request, offer appointment times, confirm, remind and reschedule.</li>
+          <li>To process gift cards, respond to feedback and consider job applications.</li>
+          <li>To send specials and promotions <em>only if you've opted in</em> (see section 4).</li>
+          <li>To keep records we're required to keep and to protect our business and clients.</li>
+        </ul>
+        <p>We don't sell your information, and we don't use it for anything unrelated to Farrah's.</p>
+
+        <h2>4. Text messages (SMS)</h2>
+        <h3>Appointment and service texts</h3>
+        <p>When you give us your mobile number and ask us to reach you by text (or "Either"), you agree that Farrah's may text you at that number about your request and your appointments: time offers, confirmations, reminders, changes and replies to your messages. These texts are part of the service you asked for, not marketing.</p>
+        <h3>Promotional texts and calls</h3>
+        <p>We send specials, promotions and news only to people who have given us written permission — for example by checking the "Offers &amp; promotions" box on our appointment form, or by texting us a keyword we advertise. By opting in you agree to receive marketing texts and calls from Farrah's at the number you provided, which may be sent using automated technology or a prerecorded voice. Consent is not a condition of booking or purchase. Promotional texts are typically no more than four per month, and we send promotional texts and calls only between 8 a.m. and 9 p.m. Eastern.</p>
+        <h3>Cost and delivery</h3>
+        <p>Message and data rates may apply according to your mobile plan. Texts are supported on major U.S. carriers. Carriers are not liable for delayed or undelivered messages.</p>
+        <h3>How to stop</h3>
+        <p>Reply <strong>STOP</strong> (or CANCEL, END, QUIT or UNSUBSCRIBE) to any text from us. We'll send one message confirming you've opted out, then stop. You can also tell us in the studio, by phone, or by email, and we'll honor it promptly — always within 10 business days, as federal rules require. If you stop texts but still want appointment reminders, just tell us and we'll set that up again, or we'll call instead.</p>
+        <h3>Help</h3>
+        <p>Reply <strong>HELP</strong> to any text, call or text <a href="tel:+17174337774">{PHONE}</a>, or email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+        <h3>Your number stays with us</h3>
+        <p>We do not share, sell or rent your mobile number or your text-messaging opt-in information with third parties or affiliates for their marketing purposes. Text-messaging originator opt-in data and consent are not shared with any third party, other than the service providers that send messages on our behalf and are bound to use it only for that.</p>
+
+        <h2>5. Phone calls</h2>
+        <p>If you ask for a call, a member of our team calls you from the studio. We don't make prerecorded or automated marketing calls without your written consent, and if you've asked us not to call you we honor that and any Do Not Call request. You can withdraw consent to calls at any time by telling us.</p>
+
+        <h2>6. Who we share with</h2>
+        <ul>
+          <li><strong>Service providers</strong> that help us run the studio: Jotform (our forms, emails and appointment workflow — see <a href="https://www.jotform.com/privacy/" target="_blank" rel="noopener">Jotform's privacy policy</a>), our website host, Google (maps, fonts and our Business Profile), our texting provider when we use one, and payment processors in the studio. They may use your information only to provide their service to us.</li>
+          <li><strong>Legal reasons</strong>: if required by law, or to protect the rights, safety or property of Farrah's, our clients or others.</li>
+          <li><strong>A change in ownership</strong> of the business, in which case your information would move with it under this same policy.</li>
+        </ul>
+
+        <h2>7. How long we keep it</h2>
+        <p>We keep appointment requests, consent records and related messages for as long as we need them to serve you and to document your consent choices — generally at least four years — and then delete or anonymize them, unless the law requires us to keep them longer. Job applications are kept for up to one year unless you're hired.</p>
+
+        <h2>8. Your choices</h2>
+        <ul>
+          <li>Ask us to update or delete your information by emailing <a href="mailto:{EMAIL}">{EMAIL}</a>. We'll verify it's you first, and we may keep records we're required to keep.</li>
+          <li>Opt out of texts or calls at any time (section 4 and 5). Opting out of promotions never affects your ability to book.</li>
+        </ul>
+
+        <h2>9. Children</h2>
+        <p>Our website and forms are for adults. We don't knowingly collect information from anyone under 13; if you believe a child has sent us information, email us and we'll delete it.</p>
+
+        <h2>10. Security</h2>
+        <p>We use reputable providers and reasonable safeguards to protect your information. No method of transmission or storage is completely secure, so we can't guarantee absolute security.</p>
+
+        <h2>11. Changes to this policy</h2>
+        <p>If we change this policy we'll post the new version here with a new effective date. Material changes to how we text you will also be noted in our texts.</p>
+
+        <h2>12. Contact us</h2>
+        <p>Farrah's Threading &amp; Beauty Studio L.L.C.<br>1360A Harrisburg Pike, Lancaster, PA 17601 · 621 Park City Center, Lancaster, PA 17601<br><a href="tel:+17174337774">{PHONE}</a> · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+      </article>
+    </div>
+  </section>
+</main>
+{FOOTER}
+<script>{NAV_JS}</script>
+</body>
+</html>
+"""
+    return head(title, desc, "privacy.html", seo.ld(graph) + "\n" + LEGAL_CSS) + body
+
+(root / "privacy.html").write_text(legal_page())
+print("built privacy.html")
