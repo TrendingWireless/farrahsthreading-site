@@ -506,15 +506,17 @@ LEGAL_CSS = """<style>
   .legal { max-width: 780px; margin: 0 auto; padding: 2.6rem 0 3.6rem; font-size: 1.02rem; line-height: 1.68; }
   .legal h2 { font-size: 1.5rem; margin: 2.3rem 0 0.6rem; }
   .legal h3 { font-size: 1.1rem; margin: 1.4rem 0 0.35rem; }
-  .legal p, .legal li, .legal dd { color: var(--ink); }
+  .legal p, .legal li, .legal dd { color: var(--fg); }
   .legal ul { padding-left: 1.2rem; }
   .legal li { margin: 0.3rem 0; }
-  .legal a { color: var(--plum); }
+  .legal a { color: var(--gold-deep); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .legal a { color: var(--gold); } }
+  :root[data-theme="dark"] .legal a { color: var(--gold); }
   .legal .meta { color: var(--ink-soft); font-size: 0.92rem; margin: 0 0 1.2rem; }
   .legal .glance { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 14px; padding: 1.25rem 1.5rem; margin: 1.6rem 0 0.4rem; box-shadow: var(--shadow); }
   .legal .glance h2 { margin: 0 0 0.8rem; font-size: 1.25rem; }
   .legal .glance dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 0.45rem 1.1rem; }
-  .legal .glance dt { font-weight: 600; color: var(--plum); }
+  .legal .glance dt { font-weight: 600; color: var(--blush-deep); }
   .legal .glance dd { margin: 0; }
   @media (max-width: 600px) { .legal .glance dl { grid-template-columns: 1fr; gap: 0.15rem; } .legal .glance dd { margin-bottom: 0.6rem; } }
 </style>"""
