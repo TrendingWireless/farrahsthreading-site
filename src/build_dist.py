@@ -79,9 +79,10 @@ page_body = page_body.replace("renderSchema(); ", "")
 
 # --- inner pages + assets ---
 pages = ["harrisburg-pike.html", "park-city-center.html", "hydrafacial.html", "threading.html", "eyebrow-tinting.html", "lash-tinting.html", "brow-lamination.html",
-         "lash-lift.html", "lash-extensions.html", "waxing.html", "facials.html", "henna.html", "privacy.html"]
+         "lash-lift.html", "lash-extensions.html", "waxing.html", "facials.html", "henna.html"]
 for f in pages + ["logo-mark.png", "logo-full.png", "logo-full-dark.png", "share.jpg"]:
     shutil.copy(root / f, dist / f)
+shutil.copytree(root / "privacy", dist / "privacy", dirs_exist_ok=True)
 
 # --- favicons from the butterfly mark ---
 mark = Image.open(root / "logo-mark.png").convert("RGBA")
@@ -97,7 +98,7 @@ sq2.resize((64, 64), Image.LANCZOS).save(dist / "favicon.ico", sizes=[(16, 16), 
 (dist / "CNAME").write_text(DOMAIN + "\n")
 (dist / "robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /src/\nSitemap: https://{DOMAIN}/sitemap.xml\n")
 today = datetime.date.today().isoformat()
-urls = ["", *pages]
+urls = ["", *pages, "privacy/"]
 sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
     f"  <url><loc>https://{DOMAIN}/{u}</loc><lastmod>{today}</lastmod><priority>{'1.0' if u == '' else '0.8'}</priority></url>\n" for u in urls) + "</urlset>\n"
 (dist / "sitemap.xml").write_text(sitemap)

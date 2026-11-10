@@ -200,6 +200,7 @@ def header(current):
       <li><a href="index.html#gift">Gift cards</a></li>
       <li><a href="index.html#about">About</a></li>
       <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="privacy/"{cur('privacy')}>Privacy</a></li>
       <li><a class="btn btn-gold" id="navCta" href="{BOOK_URL}" target="_blank" rel="noopener">Request appointment</a></li>
     </ul>
   </div>
@@ -212,7 +213,7 @@ FOOTER = f"""<footer>
     <div class="footer-text">
       <div><strong>Farrah's Threading &amp; Beauty Studio L.L.C.</strong> · Lancaster, Pennsylvania</div>
       <div><a href="harrisburg-pike.html" style="color:inherit">1360A Harrisburg Pike</a> · <a href="park-city-center.html" style="color:inherit">621 Park City Center</a> · <a href="tel:+17174337774" style="color:inherit;text-decoration:none">{PHONE}</a> · <a href="https://g.page/r/CbGpJmRZDTYFEBM/review" target="_blank" rel="noopener" style="color:var(--gold)">Leave a Google review</a></div>
-      <div>HydraFacial® and Vortex-Fusion® are registered trademarks of their owner; Farrah's is an independent HydraFacial provider. · <a href="privacy.html" style="color:inherit">Privacy &amp; texting policy</a> · © <span id="year">2026</span></div>
+      <div>HydraFacial® and Vortex-Fusion® are registered trademarks of their owner; Farrah's is an independent HydraFacial provider. · <a href="privacy/" style="color:inherit">Privacy &amp; texting policy</a> · © <span id="year">2026</span></div>
     </div>
   </div>
 </footer>
@@ -538,10 +539,10 @@ EMAIL = "management@farrahsthreading.com"
 def legal_page():
     title = "Privacy & Text Messaging Policy | Farrah's Threading & Beauty Studio"
     desc = "How Farrah's Threading & Beauty Studio in Lancaster, PA uses the information you share with us, and the terms of our appointment and promotional text messages."
-    url = f"{seo.DOMAIN}/privacy.html"
+    url = f"{seo.DOMAIN}/privacy/"
     graph = [seo.webpage_node(url, title, desc, about={"@id": seo.ORG_ID}),
              seo.breadcrumbs([("Home", seo.DOMAIN + "/"), ("Privacy & Text Messaging Policy", None)])]
-    body = f"""{header('')}
+    body = f"""{header('privacy')}
 <main id="top">
   <section class="hero on-plum hydra-hero" style="padding-bottom:2.2rem">
     <div class="wrap">
@@ -665,7 +666,11 @@ def legal_page():
 </body>
 </html>
 """
-    return head(title, desc, "privacy.html", seo.ld(graph) + "\n" + LEGAL_CSS) + body
+    page = head(title, desc, "privacy/", seo.ld(graph) + "\n" + LEGAL_CSS) + body
+    # the page lives in /privacy/, so make the shared header/footer links root-absolute
+    return re.sub(r'(href|src)="(?!(?:https?:|mailto:|tel:|#|/|data:))', r'\1="/', page)
 
-(root / "privacy.html").write_text(legal_page())
-print("built privacy.html")
+(root / "privacy").mkdir(exist_ok=True)
+(root / "privacy" / "index.html").write_text(legal_page())
+(root / "privacy.html").unlink(missing_ok=True)
+print("built privacy/index.html")
