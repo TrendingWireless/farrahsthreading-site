@@ -80,7 +80,7 @@ page_body = page_body.replace("renderSchema(); ", "")
 # --- inner pages + assets ---
 pages = ["harrisburg-pike.html", "park-city-center.html", "hydrafacial.html", "threading.html", "eyebrow-tinting.html", "lash-tinting.html", "brow-lamination.html",
          "lash-lift.html", "lash-extensions.html", "waxing.html", "facials.html", "henna.html"]
-for f in pages + ["logo-mark.png", "logo-full.png", "logo-full-dark.png", "share.jpg"]:
+for f in pages + ["logo-mark.png", "logo-full.png", "logo-full-dark.png", "logo-email.png", "share.jpg"]:
     shutil.copy(root / f, dist / f)
 shutil.copytree(root / "privacy", dist / "privacy", dirs_exist_ok=True)
 
